@@ -36,12 +36,23 @@ app.post('/myaction', function(req,res) {
   var player_2 = {};
 
   twitter.get('users/show', { screen_name: req.body['player_1'] },  function (err, data, response) {
-    player_1 = data.statuses_count;
+    console.log(data);
+    player_1_tweet_count = data.statuses_count;
+    player_1_image_url = data.profile_image_url;
+    player_1_followers_count = data.followers_count;
     twitter.get('users/show', { screen_name: req.body['player_2'] },  function (err, data, response) {
-      player_2 = data.statuses_count;
+      player_2_tweet_count = data.statuses_count;
+      player_2_image_url = data.profile_image_url;
+      player_2_followers_count = data.followers_count;
 
-      res.render('index', {data: JSON.stringify(player_2),
-                            data2: JSON.stringify(player_1)});
+      res.render('index', {
+        tweets1: JSON.stringify(player_1_tweet_count),
+        tweets2: JSON.stringify(player_2_tweet_count),
+        image1: player_1_image_url,
+        image2: player_2_image_url,
+        followers1: player_1_followers_count,
+        followers2: player_2_followers_count
+      });
       });
 
     
