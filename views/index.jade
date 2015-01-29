@@ -1,6 +1,11 @@
 html
   head
     title Joel-Andres
-  body
-    h1 Joel-Andres
-    p= data
+    body
+      h1 Joel-Andres
+      p= data
+      form(action='/myaction', method='post')
+        input(id='player_1' name='player_1')
+        input(id='player_2' name='player_2')    
+        input(type='submit', value='FIGHT')
+
