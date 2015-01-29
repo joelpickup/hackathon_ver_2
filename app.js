@@ -32,5 +32,28 @@ app.get('/', function(req, res) {
 app.post('/myaction', function(req,res) {
   params = req;
   console.log(req.body);
+  var player_1 = {};
+  var player_2 = {};
+
+  twitter.get('users/show', { screen_name: req.body['player_1'] },  function (err, data, response) {
+    player_1 = data.statuses_count;
+    twitter.get('users/show', { screen_name: req.body['player_2'] },  function (err, data, response) {
+      player_2 = data.statuses_count;
+
+      res.render('index', {data: JSON.stringify(player_2),
+                            data2: JSON.stringify(player_1)});
+      });
+
+    
+    
+
+    
+    });
+  
+
+
+// console.log("player 1" + player_1);
+// console.log("player 2" + player_2);
+
   // res.render('index', {data: JSON.stringify(params)});
 });
