@@ -27,11 +27,9 @@ $(document).ready(function(){
       function(){
         setTimeout(
           function(){
-            animate(followersWinner, "bounceIn");
-
-          $('#favouritesheader').show();
+          animate(followersWinner, "bounceIn");
           },
-          1000
+          50
           );
         remove(followersWinner, "bounceIn");
       $('#followersheader').show();
@@ -40,8 +38,13 @@ $(document).ready(function(){
       );
     setTimeout(
       function(){
+        setTimeout(
+          function(){
+            animate(favouritesWinner, "bounceIn");
+          },
+          50
+          );
       remove(followersWinner, "bounceIn");
-      animate(favouritesWinner, "bounceIn");
       $('#favouritesheader').show();
       },
       5000
