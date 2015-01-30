@@ -43,3 +43,8 @@ table {
 #followersheader, #tweetsheader, #favouritesheader {
   font-weight: bold;
 }
+#fight {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}

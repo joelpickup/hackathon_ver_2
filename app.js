@@ -35,9 +35,10 @@ app.post('/fight', function(req,res) {
   console.log(req.body);
   var player_1 = {};
   var player_2 = {};
-
   twitter.get('users/show', { screen_name: req.body['player_1'] },  function (err, data, response) {
-    console.log(data);
+    if (data == null){
+      
+    }else{
     player_1_screen_name = data.screen_name;
     player_1_tweet_count = data.statuses_count;
     var firstUnderscore = data.profile_image_url.indexOf('_');
@@ -48,8 +49,11 @@ app.post('/fight', function(req,res) {
     file_end = (player_1_image_url[1].substring(dot_index));
     player_1_image_url = player_1_image_url[0] + file_end;
     player_1_followers_count = data.followers_count;
-    player_1_favourites_count = data.favourites_count;
+    player_1_favourites_count = data.favourites_count;}
     twitter.get('users/show', { screen_name: req.body['player_2'] },  function (err, data, response) {
+      if (data == null){
+        
+      }else{
       var firstUnderscore = data.profile_image_url.indexOf('_');
       var secondUnderscore = data.profile_image_url.indexOf('_', firstUnderscore + 1);
       player_2_image_url = [data.profile_image_url.substring(0, secondUnderscore),
@@ -63,7 +67,7 @@ app.post('/fight', function(req,res) {
       player_2_followers_count = data.followers_count;
       player_2_favourites_count = data.favourites_count;
       player_2_screen_name = data.screen_name;
-
+      
       res.render('fight', {
         name1: player_1_screen_name,
         name2: player_2_screen_name,
@@ -76,6 +80,7 @@ app.post('/fight', function(req,res) {
         favourites1: player_1_favourites_count,
         favourites2: player_2_favourites_count
       });
+      }
       });
 
     
