@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
   res.render('index', { data: JSON.stringify(tweets) });
 });
 
-app.post('/myaction', function(req,res) {
+app.post('/fight', function(req,res) {
   params = req;
   console.log(req.body);
   var player_1 = {};
@@ -48,7 +48,7 @@ app.post('/myaction', function(req,res) {
       player_2_followers_count = data.followers_count;
       player_2_favourites_count = data.favourites_count;
 
-      res.render('index', {
+      res.render('fight', {
         tweets1: JSON.stringify(player_1_tweet_count),
         tweets2: JSON.stringify(player_2_tweet_count),
         image1: player_1_image_url,

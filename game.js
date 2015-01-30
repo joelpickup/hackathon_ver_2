@@ -3,4 +3,7 @@ $(document).ready(function(){
   $('#button').on('click', function(){
     console.log("click");
   });
+  $('#Fight').on('click', function(){
+    console.log("fight");
+  });
 });

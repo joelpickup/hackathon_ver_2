@@ -4,15 +4,7 @@ html
 
     body
       h1 Joel-Andres
-      #tweets1(style='display: none;')=tweets1  
-      #tweets2(style='display: none;')=tweets2
-      #followers1(style='display: none;')=followers1  
-      #followers2(style='display: none;')=followers2
-      #favourites1(style='display: none;')=favourites1  
-      #favourites2(style='display: none;')=favourites2
-      img(src=image1)
-      img(src=image2)
-      form(action='/myaction', method='post')
+      form(action='/fight', method='post')
         input(id='player_1' name='player_1')
         input(id='player_2' name='player_2')    
         input(type='submit', value='Pick Players', id="button")
