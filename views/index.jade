@@ -1,13 +1,19 @@
 html
   head
-    title Joel-Andres
+    title Twitter Top Trumps
+    style
+      include ../style.css
 
-    body
-      h1 Joel-Andres
-      form(action='/fight', method='post')
-        input(id='player_1' name='player_1')
-        input(id='player_2' name='player_2')    
-        input(type='submit', value='Pick Players', id="button")
-      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
-      script(src='/game.js')
+  body
+    h1 Twitter Top Trumps
+    p *only works with unprotected users.
+    img(src="twitter_logo.png" id="twit-img1")
+    img(src="twitter_logo.png" id="twit-img2")
+    form(action='/fight', method='post')
+      input(id='player_1' name='player_1' placeholder="e.g. joelpickup")
+      h2 VS
+      input(id='player_2' name='player_2' placeholder="e.g. andres_vara")    
+      input(type='submit', value='Pick Players', id="button")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+    script(src='/game.js')
 

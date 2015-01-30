@@ -38,6 +38,7 @@ app.post('/fight', function(req,res) {
 
   twitter.get('users/show', { screen_name: req.body['player_1'] },  function (err, data, response) {
     console.log(data);
+    player_1_screen_name = data.screen_name;
     player_1_tweet_count = data.statuses_count;
     player_1_image_url = data.profile_image_url;
     player_1_followers_count = data.followers_count;
@@ -47,8 +48,11 @@ app.post('/fight', function(req,res) {
       player_2_image_url = data.profile_image_url;
       player_2_followers_count = data.followers_count;
       player_2_favourites_count = data.favourites_count;
+      player_2_screen_name = data.screen_name;
 
       res.render('fight', {
+        name1: player_1_screen_name,
+        name2: player_2_screen_name,
         tweets1: JSON.stringify(player_1_tweet_count),
         tweets2: JSON.stringify(player_2_tweet_count),
         image1: player_1_image_url,

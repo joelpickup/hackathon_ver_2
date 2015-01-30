@@ -1,3 +1,17 @@
 body {
-  background-color: green;
+  background-color: white;
+  font-family: 'Helvetica Neue';
+  text-align: center;
+}
+
+#twit-img1, #twit-img2 {
+  width: 200px;
+  height: 200px;
+};
+
+#twit-img2 {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
