@@ -7,6 +7,7 @@ app.listen(process.env.PORT || 3000);
 
 app.set('views', './views');
 app.set('view engine', 'jade');
+app.use('/', express.static(__dirname + '/'));
 app.use(bodyParser());
 
 var twitter = new Twit({
@@ -40,10 +41,12 @@ app.post('/myaction', function(req,res) {
     player_1_tweet_count = data.statuses_count;
     player_1_image_url = data.profile_image_url;
     player_1_followers_count = data.followers_count;
+    player_1_favourites_count = data.favourites_count;
     twitter.get('users/show', { screen_name: req.body['player_2'] },  function (err, data, response) {
       player_2_tweet_count = data.statuses_count;
       player_2_image_url = data.profile_image_url;
       player_2_followers_count = data.followers_count;
+      player_2_favourites_count = data.favourites_count;
 
       res.render('index', {
         tweets1: JSON.stringify(player_1_tweet_count),
@@ -51,7 +54,9 @@ app.post('/myaction', function(req,res) {
         image1: player_1_image_url,
         image2: player_2_image_url,
         followers1: player_1_followers_count,
-        followers2: player_2_followers_count
+        followers2: player_2_followers_count,
+        favourites1: player_1_favourites_count,
+        favourites2: player_2_favourites_count
       });
       });
 
@@ -68,3 +73,4 @@ app.post('/myaction', function(req,res) {
 
   // res.render('index', {data: JSON.stringify(params)});
 });
+
