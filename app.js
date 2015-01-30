@@ -40,12 +40,22 @@ app.post('/fight', function(req,res) {
     console.log(data);
     player_1_screen_name = data.screen_name;
     player_1_tweet_count = data.statuses_count;
-    player_1_image_url = data.profile_image_url;
+    // player_1_image_url = data.profile_image_url;
+    var firstUnderscore = data.profile_image_url.indexOf('_');
+    var secondUnderscore = data.profile_image_url.indexOf('_', firstUnderscore + 1);
+    player_1_image_url = [data.profile_image_url.substring(0, secondUnderscore),
+             data.profile_image_url.substring(secondUnderscore)];
+    player_1_image_url = player_1_image_url[0] + ".jpeg";
     player_1_followers_count = data.followers_count;
     player_1_favourites_count = data.favourites_count;
     twitter.get('users/show', { screen_name: req.body['player_2'] },  function (err, data, response) {
+      var firstUnderscore = data.profile_image_url.indexOf('_');
+      var secondUnderscore = data.profile_image_url.indexOf('_', firstUnderscore + 1);
+      player_2_image_url = [data.profile_image_url.substring(0, secondUnderscore),
+               data.profile_image_url.substring(secondUnderscore)];
+      player_2_image_url = player_2_image_url[0] + ".jpeg";
+      console.log(player_2_image_url);
       player_2_tweet_count = data.statuses_count;
-      player_2_image_url = data.profile_image_url;
       player_2_followers_count = data.followers_count;
       player_2_favourites_count = data.favourites_count;
       player_2_screen_name = data.screen_name;

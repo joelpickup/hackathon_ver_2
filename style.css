@@ -4,9 +4,10 @@ body {
   text-align: center;
 }
 
-#twit-img1, #twit-img2 {
-  width: 200px;
-  height: 200px;
+#twit-img1, #twit-img2, #player1, #player2 {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
 };
 
 #twit-img2 {
@@ -14,4 +15,25 @@ body {
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+input, #vs {
+  display: inline;
+}
+
+#player_1 {
+  margin-left: 50px;
+  /*padding: 50px*/
+}
+#player_2 {
+  margin: 0;
+  /*padding: 50px*/
+}
+#vs {
+  margin-left: 75px;
+  margin-right: 50px;
+}
+#button {
+  display: block;
+  margin: 75px auto;
 }
