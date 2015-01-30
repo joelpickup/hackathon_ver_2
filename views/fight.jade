@@ -1,11 +1,19 @@
-#tweets1(style='display: none;')=tweets1  
-#tweets2(style='display: none;')=tweets2
-#followers1(style='display: none;')=followers1  
-#followers2(style='display: none;')=followers2
-#favourites1(style='display: none;')=favourites1  
-#favourites2(style='display: none;')=favourites2
-img(src=image1)
-img(src=image2)
-button(id="Fight") GO
-script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
-script(src='/game.js')
+html
+  head
+    title Joel-Andres
+    style
+      include ../style.css
+      include ../animate.css
+
+  body
+    #tweets1(style='display: none;')=tweets1  
+    #tweets2(style='display: none;')=tweets2
+    #followers1(style='display: none;')=followers1  
+    #followers2(style='display: none;')=followers2
+    #favourites1(style='display: none;')=favourites1  
+    #favourites2(style='display: none;')=favourites2
+    img(src=image1)
+    img(src=image2)
+    button(id="Fight") GO
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+    script(src='/game.js')
