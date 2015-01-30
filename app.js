@@ -40,12 +40,13 @@ app.post('/fight', function(req,res) {
     console.log(data);
     player_1_screen_name = data.screen_name;
     player_1_tweet_count = data.statuses_count;
-    // player_1_image_url = data.profile_image_url;
     var firstUnderscore = data.profile_image_url.indexOf('_');
     var secondUnderscore = data.profile_image_url.indexOf('_', firstUnderscore + 1);
     player_1_image_url = [data.profile_image_url.substring(0, secondUnderscore),
              data.profile_image_url.substring(secondUnderscore)];
-    player_1_image_url = player_1_image_url[0] + ".jpeg";
+    dot_index = player_1_image_url[1].indexOf('.');
+    file_end = (player_1_image_url[1].substring(dot_index));
+    player_1_image_url = player_1_image_url[0] + file_end;
     player_1_followers_count = data.followers_count;
     player_1_favourites_count = data.favourites_count;
     twitter.get('users/show', { screen_name: req.body['player_2'] },  function (err, data, response) {
@@ -53,7 +54,10 @@ app.post('/fight', function(req,res) {
       var secondUnderscore = data.profile_image_url.indexOf('_', firstUnderscore + 1);
       player_2_image_url = [data.profile_image_url.substring(0, secondUnderscore),
                data.profile_image_url.substring(secondUnderscore)];
-      player_2_image_url = player_2_image_url[0] + ".jpeg";
+      dot_index = player_2_image_url[1].indexOf('.');
+      file_end = (player_2_image_url[1].substring(dot_index));
+      player_2_image_url = player_2_image_url[0] + file_end;
+      console.log(player_1_image_url);
       console.log(player_2_image_url);
       player_2_tweet_count = data.statuses_count;
       player_2_followers_count = data.followers_count;

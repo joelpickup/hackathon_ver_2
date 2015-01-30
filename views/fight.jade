@@ -6,32 +6,36 @@ html
       include ../animate.css
 
   body
-    h1 Twitter Top Trumps
-    p *only works with unprotected users.
-    img#player1(src=image1)
-    img#player2(src=image2)
+    h1 Today's match-up is between:
+    #div1
+      h2#name1=name1
+      img#player1(src=image1)
+    #div2
+      h2#name2=name2
+      img#player2(src=image2)
     button(id="Fight") GO
-    #tweetsheader(style='display: none;')
-      h2 Number of Tweets:
-      h3=name1
-      h3(id='tweets1')=tweets1
-      h3=name2
-      h3(id='tweets2')=tweets2
-    #followersheader(style='display: none;')
-      h2 Number of followers:
-      h3=name1
-      h3(id='followers1')=followers1
-      h3=name2
-      h3(id='followers2')=followers2
-    #favouritesheader(style='display: none;')
-      h2 Number of favourites:
-      h3=name1
-      h3(id='favourites1')=favourites1
-      h3=name2
-      h3(id='favourites2')=favourites2
+    table
+      tr
+      tr#tweetsheader(style='display: none;')
+        td(colspan=2) Number of tweets:
+      tr#tweetsheader2(style='display: none;')
+        td#tweets1=tweets1
+        td#tweets2=tweets2
+      tr#followersheader(style='display:none;')
+        td(colspan=2) Number of followers:
+      tr#followersheader2(style='display:none')
+        td#followers1=followers1
+        td#followers2=followers2
+      tr#favouritesheader(style='display:none')
+        td(colspan=2) Number of favourites:
+      tr#favouritesheader2(style='display:none')
+        td#favourites1=favourites1
+        td#favourites2=favourites2
     #player1wins(style='display: none;')
       h3=name1 + " WINS!"
     #player2wins(style='display: none;')
       h3=name2 + " WINS!"
+    #return(style="display: none;")
+      a(href="/") Try again
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='/game.js')

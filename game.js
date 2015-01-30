@@ -18,11 +18,10 @@ $(document).ready(function(){
     var false_count = array.filter(function(value){
         return value === false;
     }).length;
-    console.log(false_count);
     var true_count = array.filter(function(value){
         return value === true;
     }).length;
-    console.log(true_count);
+    console.log(tweets1);
     setTimeout(
       function(){
         setTimeout(
@@ -32,7 +31,8 @@ $(document).ready(function(){
           50
           );
         remove(followersWinner, "bounceIn");
-      $('#followersheader').show();
+      $('#followersheader').fadeIn();
+      $('#followersheader2').fadeIn();
       },
       3000
       );
@@ -45,21 +45,24 @@ $(document).ready(function(){
           50
           );
       remove(followersWinner, "bounceIn");
-      $('#favouritesheader').show();
+      $('#favouritesheader').fadeIn();
+      $('#favouritesheader2').fadeIn();
       },
       5000
       );
     setTimeout(
       function(){
         if (true_count > false_count){
-          $('#player1wins').show();
+          $('#player1wins').fadeIn();
         }else{
-          $('#player2wins').show();
+          $('#player2wins').fadeIn();
         }
+        $('#return').fadeIn();
       },
       7000
       );
-    $('#tweetsheader').show();
+    $('#tweetsheader').fadeIn();
+    $('#tweetsheader2').fadeIn();
     animate(tweetsWinner, "bounceIn");
 
     // animate(favouritesWinner, "bounceOutRight").delay('fast');

@@ -5,17 +5,10 @@ body {
 }
 
 #twit-img1, #twit-img2, #player1, #player2 {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   padding: 20px;
 };
-
-#twit-img2 {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-}
 
 input, #vs {
   display: inline;
@@ -36,4 +29,17 @@ input, #vs {
 #button {
   display: block;
   margin: 75px auto;
+}
+#name1, #name2 {
+  display: block;
+}
+#div1, #div2 {
+  display: inline-block;
+}
+table {
+  text-align: center;
+  margin: 0 auto;
+}
+#followersheader, #tweetsheader, #favouritesheader {
+  font-weight: bold;
 }
