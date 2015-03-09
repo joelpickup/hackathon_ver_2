@@ -1,4 +1,4 @@
-= Twitter Top Trumps
+# Twitter Top Trumps
 
 The result of a 24 hour hackathon with invizinviz. 
 
